@@ -21,6 +21,7 @@ st.markdown("""
         body {background-color: #2E3440; color: white;}
         .stButton>button {background-color: #8FBCBB; color: black; border-radius: 10px; font-size: 16px;}
         .stRadio div {display: flex; gap: 10px;}
+        .chess-container {background: url('https://images.unsplash.com/photo-1518770660439-4636190af475') no-repeat center center; background-size: cover; padding: 20px; border-radius: 15px;}
     </style>
 """, unsafe_allow_html=True)
 
@@ -35,7 +36,7 @@ else:
 # Function to get board image
 def render_board():
     board_svg = chess.svg.board(st.session_state.board, size=500, flipped=(st.session_state.player_color == "black"))
-    return f"""<div style='text-align:center;'>{board_svg}</div>"""
+    return f"""<div class='chess-container' style='text-align:center;'>{board_svg}</div>"""
 
 st.write("### Current Game State:")
 html(render_board(), height=500)
